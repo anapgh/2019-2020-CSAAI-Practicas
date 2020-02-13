@@ -4,17 +4,22 @@
     <meta charset="utf-8">
     <title> Mi CV </title>
   </head>
-
+    <link rel = "stylesheet" href="style.css">
   <body>
-    <div class="Biografia">
-      <h1> Juli García Herrero </h1>
-      <p> Nacionalidad Australiana</p>
-      <p>"Curiosa, extrovertida y trabajadora"</p>
-      <p>Soy un periquito bastante inteligente. Tengo una gran pasión por las artes.
-      Me considero muy obediente, y servicial para mis trabajos. Tengo gran capacidad
-      de aprendizaje y muchas ganas de proyectos nuevos.</p>
+    <div class="header">
+      <h1 id="Nombre"> Juli García Herrero </h1>
+      <div class="Biografia">
+        <p> Nacionalidad Australiana</p>
+        <p>"Curiosa, extrovertida y trabajadora"</p>
+        <p>Soy un periquito bastante inteligente. Tengo una gran pasión por las artes.
+        Me considero muy obediente, y servicial para mis trabajos. Tengo gran capacidad
+        de aprendizaje y muchas ganas de proyectos nuevos.</p>
+      </div>
+      <img id= "Perfil" src="Juliperfil.jpg">
     </div>
 
+
+  <div id = "column1">
     <h2>Competencias</h2>
     <div class="Cualidades">
       <ul>
@@ -32,21 +37,22 @@
 
     <h2>Educación</h2>
     <div class="Educación">
-      <span>2013-2015</span>
+      <span class= "Fechas">2013-2015</span>
       <span>Escuela Superior de Canto de Madrid</span>
-      <p>Madrid, España</p>
-      <span>2015-2019</span>
+      <p class="Lugar">Madrid, España</p>
+      <span class= "Fechas">2015-2019</span>
       <span>Artes Visuales y Danza, Mención en Danza Acrobática
       y Circense</span>
+      <p class="Lugar">Fuenlabrada, España</p>
     </div>
 
     <h2>Experiencia profesional</h2>
     <div class="Experiencia">
       <div class="OT">
-        <span>Octubre, 2016- Febrero, 2017</span>
-        <span>OPERACION TRIUNFO</span>
-        <p>Profesora de canto</p>
-        <ul>
+        <span class= "Fechas">Octubre, 2016- Febrero, 2017</span>
+        <span >OPERACION TRIUNFO</span>
+        <p class="Profesion">Profesora de canto</p>
+        <ul id="CualidadesOT">
           <li>Conocimientos profundos de teoría musical y habilidad de
             cantar con profesionalidad.</li>
           <li>La capacidad de animar, motivar e inspirar a los estudiantes.</li>
@@ -55,10 +61,10 @@
         </ul>
       </div>
       <div class="Tu cara me suena">
-        <span>Septiembre, 2018 - Febrero 2019</span>
+        <span class= "Fechas">Septiembre, 2018 - Febrero 2019</span>
         <span>TU CARA ME SUENA</span>
-        <p>Bailarina</p>
-        <ul>
+        <p class="Profesion">Bailarina</p>
+        <ul id="CualidadesTCMS">
           <li>Capaz de interpretar música y coreografía.</li>
           <li>Buena capacidad de concentración.</li>
           <li>Ser versátil, con un buen sentido del ritmo.</li>
@@ -74,6 +80,7 @@
         <li>Cuenta de instagram sobre bailes con mas de +20k seguidores</li>
       </ul>
     </div>
+  </div>
 
   </body>
 </html>

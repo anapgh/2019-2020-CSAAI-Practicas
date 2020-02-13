@@ -1,0 +1,99 @@
+body{
+  color: blue;
+}
+
+.Biografia{
+  color: blue;
+  padding: 10px;
+  border: solid;
+  border-color: Navy;
+  float: right;
+  width: 75%;
+  padding: 15px;
+}
+
+ #Perfil{
+   background-position: right top;
+   width: 200px;
+ }
+
+.header {
+  background-color: #F1F1F1;
+  text-align: left;
+  padding: 20px;
+}
+
+#column1{
+  float: right;
+  width: 75%;
+  padding: 15px;
+}
+
+#Nombre{
+  color: Navy;
+  text-align: center;
+  background-color: pink;
+  background-position: right;
+}
+h2{
+  color: Navy;
+  background-color: pink;
+}
+
+.Cualidades{
+  background-color: lightblue;
+
+}
+
+.Idiomas{
+  background-color: lightblue;
+}
+
+.Educación{
+  padding: 10px;
+  border: solid;
+  border-color: Navy;
+}
+.Lugar{
+  font-size: 12px;
+}
+
+.Experiencia{
+  padding: 10px;
+  border: solid;
+  border-color: Navy;
+}
+
+.Fechas{
+  font-size: 15px;
+  text-align: left;
+}
+
+.Profesion{
+  font-size: 15px;
+  text-align: left;
+  float: right;
+  width: 80%;
+}
+
+
+#CualidadesOT{
+  font-size: 15px;
+  border: 1px solid black;
+  background-color: lightblue;
+
+}
+
+#CualidadesTCMS{
+  font-size: 15px;
+  border: 1px solid black;
+  background-color: lightblue;
+
+}
+
+
+.Intereses{
+  padding: 10px;
+  border: solid;
+  border-color: Navy;
+}
