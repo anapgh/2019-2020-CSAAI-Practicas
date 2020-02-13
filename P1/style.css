@@ -1,5 +1,5 @@
-body{
-  color: blue;
+#fondo{
+  background-image: url("alpiste.jpg");
 }
 
 .Biografia{
@@ -24,8 +24,8 @@ body{
 }
 
 #column1{
-  float: right;
-  width: 75%;
+  float: left;
+  width: 70%;
   padding: 15px;
 }
 
