@@ -8,7 +8,7 @@
   border: solid;
   border-color: Navy;
   float: right;
-  width: 75%;
+  width: 80%;
   padding: 15px;
 }
 
@@ -16,6 +16,25 @@
    background-position: right top;
    width: 200px;
  }
+
+ #instagram{
+   background-position: center;
+   width: 20px;
+   margin-left: 300px;
+ }
+
+#correo{
+  background-position: center;
+  width: 20px;
+  margin-right: : 600px;
+}
+
+#linked{
+  background-position: center;
+  width: 20px;
+  margin-right: : 600px;
+}
+
 
 .header {
   background-color: #F1F1F1;
@@ -25,7 +44,7 @@
 
 #column1{
   float: left;
-  width: 70%;
+  width: 60%;
   padding: 15px;
 }
 
@@ -40,60 +59,94 @@ h2{
   background-color: pink;
 }
 
+
 .Cualidades{
-  background-color: lightblue;
+  line-height : 25px;
+  padding: 10px;
+  border: solid;
+  border-color: Navy;
+  background-color: #FFFFE0 ;
+
 
 }
 
 .Idiomas{
-  background-color: lightblue;
+  padding: 10px;
+  border: solid;
+  border-color: Navy;
+  background-color: #FFFFE0 ;
+}
+
+.barra{
+  background-position: right;
+  width: 100px;
 }
 
 .Educación{
   padding: 10px;
   border: solid;
   border-color: Navy;
+  background-color: #FFFFE0 ;
+
 }
 .Lugar{
   font-size: 12px;
 }
 
 .Experiencia{
-  padding: 10px;
+  padding: 20px;
   border: solid;
   border-color: Navy;
+
 }
 
 .Fechas{
   font-size: 15px;
   text-align: left;
+  border: 1px solid pink;
+  background-color: lightblue;
+
+}
+
+.Empresa{
+  font-size: 20px;
+  text-align: left;
+  border: 1px solid pink;
+  background-color: lightblue;
 }
 
 .Profesion{
-  font-size: 15px;
+  font-size: 20px;
   text-align: left;
-  float: right;
-  width: 80%;
-}
+  float: center;
+  border: 1px solid pink;
+  background-color: lightblue;
+  margin-right: 200px;
 
+}
 
 #CualidadesOT{
   font-size: 15px;
-  border: 1px solid black;
-  background-color: lightblue;
+  border: 1px solid pink;
+  background-color: #FFFFE0 ;
+  padding: 25px;
+  line-height : 25px;
 
 }
 
 #CualidadesTCMS{
   font-size: 15px;
-  border: 1px solid black;
-  background-color: lightblue;
+  border: 1px solid pink;
+  background-color: #FFFFE0 ;
+  padding: 25px;
+  line-height : 25px;
 
 }
-
 
 .Intereses{
   padding: 10px;
   border: solid;
   border-color: Navy;
+  line-height : 25px;
+  background-color: #FFFFE0 ;
 }
