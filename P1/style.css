@@ -1,5 +1,6 @@
-#fondo{
+body{
   background-image: url("alpiste.jpg");
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 .Biografia{
@@ -10,36 +11,30 @@
   float: right;
   width: 80%;
   padding: 15px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-family: Verdana;
+
 }
 
  #Perfil{
    background-position: right top;
    width: 200px;
+   border-radius: 30px;
  }
 
- #instagram{
-   background-position: center;
-   width: 20px;
-   margin-left: 300px;
- }
-
-#correo{
+.redes{
   background-position: center;
   width: 20px;
-  margin-right: : 600px;
+  margin-left: 300px;
 }
-
-#linked{
-  background-position: center;
-  width: 20px;
-  margin-right: : 600px;
-}
-
 
 .header {
-  background-color: #F1F1F1;
+  background-color: rgba(230, 214, 144, 0.8);
   text-align: left;
-  padding: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 30px;
 }
 
 #column1{
@@ -51,30 +46,49 @@
 #Nombre{
   color: Navy;
   text-align: center;
-  background-color: pink;
+  background-color: rgba(234, 137, 154, 0.5);
   background-position: right;
-}
-h2{
-  color: Navy;
-  background-color: pink;
+  border-radius: 20px;
+  margin-left: 400px;
+  margin-right: 400px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
+h2{
+  color: Navy;
+  background-color: rgba(234, 137, 154, 0.8);
+  border-radius: 20px;
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 200px;
+
+}
+ .Bloque{
+   background-color: rgba(255, 255, 255, 0.7);
+   border-radius: 20px;
+   padding: 20px;
+   border: solid;
+   border-color: Navy;
+   border-radius: 20px;
+
+ }
 
 .Cualidades{
   line-height : 25px;
   padding: 10px;
   border: solid;
-  border-color: Navy;
-  background-color: #FFFFE0 ;
-
-
+  border-color: pink;
+  background-color: rgba(230, 214, 144, 0.8);
+  border-radius: 20px;
 }
 
 .Idiomas{
   padding: 10px;
   border: solid;
-  border-color: Navy;
-  background-color: #FFFFE0 ;
+  border-color: pink;
+  background-color: rgba(230, 214, 144, 0.8);
+  border-radius: 20px;
 }
 
 .barra{
@@ -86,18 +100,12 @@ h2{
   padding: 10px;
   border: solid;
   border-color: Navy;
-  background-color: #FFFFE0 ;
+  background-color: rgba(230, 214, 144, 0.8);
+  border-radius: 20px;
 
 }
 .Lugar{
   font-size: 12px;
-}
-
-.Experiencia{
-  padding: 20px;
-  border: solid;
-  border-color: Navy;
-
 }
 
 .Fechas{
@@ -105,6 +113,7 @@ h2{
   text-align: left;
   border: 1px solid pink;
   background-color: lightblue;
+  border-radius: 10px;
 
 }
 
@@ -113,6 +122,7 @@ h2{
   text-align: left;
   border: 1px solid pink;
   background-color: lightblue;
+  border-radius: 10px;
 }
 
 .Profesion{
@@ -122,24 +132,27 @@ h2{
   border: 1px solid pink;
   background-color: lightblue;
   margin-right: 200px;
+  border-radius: 10px;
 
 }
 
 #CualidadesOT{
   font-size: 15px;
   border: 1px solid pink;
-  background-color: #FFFFE0 ;
+  background-color: rgba(230, 214, 144, 0.8);
   padding: 25px;
   line-height : 25px;
+  border-radius: 20px;
 
 }
 
 #CualidadesTCMS{
   font-size: 15px;
   border: 1px solid pink;
-  background-color: #FFFFE0 ;
+  background-color: rgba(230, 214, 144, 0.8);
   padding: 25px;
   line-height : 25px;
+  border-radius: 20px;
 
 }
 
@@ -148,5 +161,20 @@ h2{
   border: solid;
   border-color: Navy;
   line-height : 25px;
-  background-color: #FFFFE0 ;
+  background-color: rgba(230, 214, 144, 0.8);;
+  border-radius: 20px;
+}
+
+.column2{
+  padding: 10px;
+  border: solid;
+  border-color: Navy;
+  line-height : 25px;
+  background-color: rgba(230, 214, 144, 0.8);
+  border-radius: 20px;
+  float: right;
+  width: 30%;
+  margin-top: 85px;
+  padding-right: 30px;
+
 }

@@ -5,7 +5,7 @@
     <title> Mi CV </title>
   </head>
     <link rel = "stylesheet" href="style.css">
-  <body id = "fondo">
+  <body>
     <div class="header">
       <h1 id="Nombre"> Juli García Herrero </h1>
       <div class="Biografia">
@@ -15,30 +15,32 @@
         Me considero muy obediente, y servicial para mis trabajos. Tengo gran capacidad
         de aprendizaje y muchas ganas de proyectos nuevos.</p>
       </div>
-      <img id= "Perfil" src="Juliperfil.jpg">
-      <span><img id = "instagram" src="instagram.png"> @Juli_Garcia</span>
-      <span><img id = "correo" src="correo.png"> Juli_Garcia@gmail.com</span>
-      <span><img id = "linked" src="likelin.png">Juli Garcia</span>
+      <img id= "Perfil" src="hola.gif">
+      <span><img class="redes" src="instagram.png"> @Juli_Garcia</span>
+      <span><img class="redes" src="correo.png"> Juli_Garcia@gmail.com</span>
+      <span><img class="redes" src="likelin.png"> Juli Garcia</span>
     </div>
 
   <div id = "column1">
     <h2>Competencias</h2>
-    <div class="Cualidades">
-      <ul>
-        <li>Trabajo en equipo</li>
-        <li>Perseverancia y dedicación</li>
-      </ul>
-    </div>
-    <br>
-    <div class="Idiomas">
-      <ul>
-        <li>Inglés</li>
-        <img class = "barra" src="idioma.png">
-        <li>Alemán</li>
-        <img class = "barra" src="aleman.png">
-        <li>Español</li>
-        <img class = "barra" src="idioma.png">
-      </ul>
+    <div class="Bloque">
+      <div class="Cualidades">
+        <ul>
+          <li>Trabajo en equipo</li>
+          <li>Perseverancia y dedicación</li>
+        </ul>
+      </div>
+      <br>
+      <div class="Idiomas">
+        <ul>
+          <li>Inglés</li>
+          <img class = "barra" src="idioma.png">
+          <li>Alemán</li>
+          <img class = "barra" src="aleman.png">
+          <li>Español</li>
+          <img class = "barra" src="idioma.png">
+        </ul>
+      </div>
     </div>
 
     <h2>Educación</h2>
@@ -53,7 +55,7 @@
     </div>
 
     <h2>Experiencia profesional</h2>
-    <div class="Experiencia">
+    <div class="Bloque">
       <div class="OT">
         <span class= "Fechas">Octubre, 2016- Febrero, 2017</span>
         <span class= "Empresa" >OPERACION TRIUNFO</span>
@@ -80,6 +82,7 @@
       </div>
     </div>
 
+
     <h2>INTERESES</h2>
     <div class="Intereses">
       <ul>
@@ -90,9 +93,13 @@
     </div>
   </div>
   <div class="column2">
-    <p>Botones</p>
-    <button>Botón 1</button>
+    <button class = "boton" type="button" name="button" onclick = myFunction('foto')><b>Pulsame para verme en acción</b></button>
+    <p id = "foto"></p>
+    <script>
+      function myFunction(id) {
+        img = document.getElementById(id).innerHTML = '<img src = "baile.gif"/>';
+        }
+    </script>
   </div>
-
   </body>
 </html>
