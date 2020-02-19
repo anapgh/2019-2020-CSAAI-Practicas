@@ -1,6 +1,7 @@
 body{
   background-image: url("alpiste.jpg");
   font-family: Georgia, 'Times New Roman', serif;
+
 }
 
 .Biografia{
@@ -27,6 +28,10 @@ body{
   background-position: center;
   width: 20px;
   margin-left: 300px;
+  font-size: 20px;
+}
+b{
+  font-size: 20px;
 }
 
 .header {
@@ -62,6 +67,7 @@ h2{
   text-align: center;
   margin-left: 200px;
   margin-right: 200px;
+  font-size: 30px;
 
 }
  .Bloque{
@@ -81,6 +87,7 @@ h2{
   border-color: pink;
   background-color: rgba(230, 214, 144, 0.8);
   border-radius: 20px;
+  font-size: 18px;
 }
 
 .Idiomas{
@@ -89,6 +96,7 @@ h2{
   border-color: pink;
   background-color: rgba(230, 214, 144, 0.8);
   border-radius: 20px;
+  font-size: 18px;
 }
 
 .barra{
@@ -102,14 +110,15 @@ h2{
   border-color: Navy;
   background-color: rgba(230, 214, 144, 0.8);
   border-radius: 20px;
+  font-size: 18px;
 
 }
 .Lugar{
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .Fechas{
-  font-size: 15px;
+  font-size: 17px;
   text-align: left;
   border: 1px solid pink;
   background-color: lightblue;
@@ -136,18 +145,8 @@ h2{
 
 }
 
-#CualidadesOT{
-  font-size: 15px;
-  border: 1px solid pink;
-  background-color: rgba(230, 214, 144, 0.8);
-  padding: 25px;
-  line-height : 25px;
-  border-radius: 20px;
-
-}
-
-#CualidadesTCMS{
-  font-size: 15px;
+.Conocimientos{
+  font-size: 18px;
   border: 1px solid pink;
   background-color: rgba(230, 214, 144, 0.8);
   padding: 25px;
@@ -157,6 +156,7 @@ h2{
 }
 
 .Intereses{
+  font-size: 18px;
   padding: 10px;
   border: solid;
   border-color: Navy;
@@ -169,7 +169,6 @@ h2{
   padding: 10px;
   border: solid;
   border-color: Navy;
-  line-height : 25px;
   background-color: rgba(230, 214, 144, 0.8);
   border-radius: 20px;
   float: right;
