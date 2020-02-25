@@ -1,0 +1,32 @@
+body{
+  background-color: blue;
+}
+
+p{
+  background-color: rgba(255, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.valor{
+  border-width: medium;
+  border-color: Navy;
+  border: solid;
+  border-radius: 10px;
+  width: 75px;
+  padding: 10px;
+  margin: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.Calculadora{
+  border-width: medium;
+  border-color: Navy;
+  border: solid;
+  border-radius: 10px;
+  width: 419px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: auto;
+}
