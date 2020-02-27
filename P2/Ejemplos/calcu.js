@@ -16,14 +16,10 @@ function digito(boton){
   }
 }
 
-// -- Insertar digito 1
-boton1.onclick = () => {
-  digito(boton1)
-  }
 
 //-- Insertar digito 2
-boton2.onclick = () => {
-  digito(boton2)
+boton2.onclick = (ev) => {
+  digito(ev.target);//Le paso lo que me da el evento en vez de el boton directo
 }
 
 //-- Insertar simbolo de sumar
