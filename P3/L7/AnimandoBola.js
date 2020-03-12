@@ -21,7 +21,7 @@ function main(){
 
     //--Coordenadas
     x : 0,
-    y : 0;
+    y : 0,
 
     //-- Velocidad
     vx : 4,
