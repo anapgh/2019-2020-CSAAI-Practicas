@@ -27,7 +27,7 @@ function main(){
 
   //--Dibujo la red
   console.log('dibujando red');
-  ctx.moveTo(300,1);
+  /*ctx.moveTo(300,1);
   ctx.lineTo(300,20);
   ctx.moveTo(300,40);
   ctx.lineTo(300,60);
@@ -46,8 +46,18 @@ function main(){
   ctx.moveTo(300,320);
   ctx.lineTo(300,340);
   ctx.moveTo(300,360);
-  ctx.lineTo(300,380);
-  ctx.strokeStyle = 'white';
-  ctx.lineWidth = 3;
-  ctx.stroke();
+  ctx.lineTo(300,380);*/
+  incr = 0
+  while(incr <= canvas.height){
+    ctx.moveTo(300,incr);
+    incr += 10;
+    ctx.lineTo(300,incr);
+    incr += 10;
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+
+
 }
