@@ -37,7 +37,8 @@ function main(){
     ctx.lineWidth = 2;
     ctx.stroke();
   }
-
-
-
+   //-- Dibujar puntuacion
+   ctx.font = '50px Arial'
+   ctx.fillText('0', 220,60);
+   ctx.fillText('2', 350,60);
 }
