@@ -44,7 +44,7 @@ function main(){
 
     //-- Update: Actualizar el estado de la bola
     update: function(){
-      this.x += thix.vx;
+      this.x += this.vx;
       this.y += this.vy;
     },
 
@@ -61,7 +61,7 @@ function main(){
 
   //-- Crear timer para la animación
   //-- Incialmente a null
-  var time = null;
+  var timer = null;
 
   //-- Boton Sacar
   var sacar = document.getElementById('sacar');
