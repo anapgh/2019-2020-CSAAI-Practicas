@@ -1,0 +1,9 @@
+/* Fondo de la pagina*/
+body{
+  background-color: lightblue;
+}
+
+/* estilo para el canvas: negro */
+#canvas{
+  background-color: black;
+}
