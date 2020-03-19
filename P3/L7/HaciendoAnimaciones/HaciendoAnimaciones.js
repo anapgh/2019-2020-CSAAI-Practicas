@@ -1,10 +1,8 @@
 //-- Inicializamos en JS
 console.log('Empezando el JS...');
 
-//-- Obtener el objeto canvas y asignar sus dimensiones
+//-- Obtener el objeto canvas
 var canvas = document.getElementById('canvas');
-canvas.width = 600;
-canvas.height = 400;
 
 // Las imprimimos en la consola
 console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
@@ -48,6 +46,7 @@ function draw(){
    ctx.fillText('0', 220,80);
    ctx.fillText('2', 350,80);
 }
+
 //-- Bucle principal de la animación
 // Se repetira con una frecuencia de 60Hz
 function animacion(){
@@ -61,10 +60,9 @@ function animacion(){
 
   //-- Mostrar actividad en la consola
   console.log('Frame!');
-
+}
   //-- Arrancar la animacion
   // Con una frecuencia de 60HZ, 17ms
-  setInterval(() => {
-    animacion();
-  },16);
-}
+setInterval(() => {
+  animacion();
+},16);
