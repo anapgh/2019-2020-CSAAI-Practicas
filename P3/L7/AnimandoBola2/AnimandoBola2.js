@@ -20,7 +20,7 @@ function draw(){
   //--Dibujo la bola
   ctx.beginPath();
   ctx.fillStyle ='white';
-  ctx.rect(370,200,10,10);
+  ctx.rect(bola_x,200,10,10);
   ctx.fill();
 
   //--Dibujo raquetas
@@ -71,3 +71,14 @@ function animacion(){
 setInterval(() => {
   animacion();
 },16);
+
+//-- Obtener el boton
+const paso = document.getElementById("paso");
+
+//-- Boton de dar un Paso: Cada vez que lo apretamos
+//-- la bola avanza 5 pixeles
+paso.onclick = () => {
+  //-- Incrementar la posicio x de la bola
+  bola_x += 5;
+  console.log("Paso!");
+}
