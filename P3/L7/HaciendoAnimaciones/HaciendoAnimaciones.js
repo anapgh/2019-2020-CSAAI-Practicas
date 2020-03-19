@@ -1,18 +1,19 @@
 //-- Inicializamos en JS
 console.log('Empezando el JS...');
 
+//-- Obtener el objeto canvas y asignar sus dimensiones
+var canvas = document.getElementById('canvas');
+canvas.width = 600;
+canvas.height = 400;
 
-  //-- Obtener el objeto canvas y asignar sus dimensiones
-  var canvas = document.getElementById('canvas');
-  canvas.width = 600;
-  canvas.height = 400;
+// Las imprimimos en la consola
+console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
 
-  // Las imprimimos en la consola
-  console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
+//-- Sacamos el contexto para poder dibujar en el canvas
+var ctx = canvas.getContext('2d');
 
-  //-- Sacamos el contexto para poder dibujar en el canvas
-  var ctx = canvas.getContext('2d');
-
+//-- Pintar todo los objetos del canvas
+function draw(){
   //--Dibujo la bola
   ctx.beginPath();
   ctx.fillStyle ='white';
@@ -46,3 +47,13 @@ console.log('Empezando el JS...');
    ctx.fillStyle = "white";
    ctx.fillText('0', 220,80);
    ctx.fillText('2', 350,80);
+}
+//-- Bucle principal de la animación
+function animation(){
+
+  //-- Borrar el canvas
+  ctx.clearRect(0,0, canvas.width, canvas.height);
+
+  //-- Dibujar el nuevo frame
+  draw();
+}
