@@ -63,7 +63,6 @@ function animacion(){
     bola_x += 1;
   }
 
-
   //-- Borrar el canvas
   // Esquina superior izquierda del canvas (0,0), y anchura y altura
   ctx.clearRect(0,0, canvas.width, canvas.height);
@@ -89,4 +88,16 @@ sacar.onclick = () => {
   bola_x = 50;
   bola_vx = 3;
   console.log("sacar!");
+}
+
+//-- Obtener el boton
+const reset = document.getElementById("reset");
+
+//-- Boton de Reset:
+//-- la bola vuelve a su posicion incial
+reset.onclick = () => {
+  //-- Establecer posicion incial de la bola
+  bola_x = 50;
+  bola_vx = 0;
+  console.log("Reset!");
 }
