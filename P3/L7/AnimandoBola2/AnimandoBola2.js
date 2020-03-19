@@ -10,6 +10,11 @@ console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
 //-- Sacamos el contexto para poder dibujar en el canvas
 var ctx = canvas.getContext('2d');
 
+//-- Variables para la bola
+// Modificaremos la coordenada x para que mueva horizontalmente hacia la derecha
+// La Inicializamos
+let bola_x = 50;
+
 //-- Pintar todo los objetos del canvas
 function draw(){
   //--Dibujo la bola
