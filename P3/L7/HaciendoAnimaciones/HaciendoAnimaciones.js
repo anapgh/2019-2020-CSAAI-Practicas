@@ -49,11 +49,22 @@ function draw(){
    ctx.fillText('2', 350,80);
 }
 //-- Bucle principal de la animación
-function animation(){
+// Se repetira con una frecuencia de 60Hz
+function animacion(){
 
   //-- Borrar el canvas
+  // Esquina superior izquierda del canvas (0,0), y anchura y altura
   ctx.clearRect(0,0, canvas.width, canvas.height);
 
   //-- Dibujar el nuevo frame
   draw();
+
+  //-- Mostrar actividad en la consola
+  console.log('Frame!');
+
+  //-- Arrancar la animacion
+  // Con una frecuencia de 60HZ, 17ms
+  setInterval(() => {
+    animacion();
+  },16);
 }
