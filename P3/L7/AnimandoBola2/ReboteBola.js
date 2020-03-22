@@ -59,10 +59,10 @@ function animacion(){
 
   //-- Actualizar las posiciones de los objetos móviles
 
-  //-- Comprobar si la bola ha alcanzado el límite derecho
+  //-- Comprobar si la bola ha alcanzado el límite derecho o izquierdo
   //-- Si es asi, se cambia el signo de la velocidad, para que 'rebote'
   //-- Y vaya en sentido opuesto
-  if(bola_x >= canvas.width){
+  if((bola_x >= canvas.width)||(bola_x <= 0.0)){
     //-- Hay colision. Cambiar el signo de la bola
     bola_vx = bola_vx * -1;
   }
