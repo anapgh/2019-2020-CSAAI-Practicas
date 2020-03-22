@@ -69,9 +69,11 @@ function animacion(){
   if((bola_x >= canvas.width)||(bola_x <= 0.0)){
     //-- Hay colision. Cambiar el signo de la bola
     bola_vx = bola_vx * -1;
+    sonido.play();
   }else if ((bola_y >= canvas.height)||(bola_y <= 0.0)) {
     //-- Hay colision. Cambiar el signo de la bola
     bola_vy = bola_vy * -1;
+    sonido.play();
   }
 
   //-- Actualizar coordenada x e y de la bola, en funcion de la velocidad
