@@ -15,6 +15,10 @@ var ctx = canvas.getContext('2d');
 // La Inicializamos
 let bola_x = 50;
 let bola_vx = 0; // Velocidad eje horizontal(x)
+// Modificaremos la coordenada x para que mueva horizontalmente hacia la derecha
+// La Inicializamos
+let bola_y = 100;
+let bola_vy = 0;
 
 //-- Pintar todo los objetos del canvas
 function draw(){
@@ -65,10 +69,14 @@ function animacion(){
   if((bola_x >= canvas.width)||(bola_x <= 0.0)){
     //-- Hay colision. Cambiar el signo de la bola
     bola_vx = bola_vx * -1;
+  }else if ((bola_y >= canvas.height)||(bola_y <= 0.0)) {
+    //-- Hay colision. Cambiar el signo de la bola
+    bola_vy = bola_vy * -1;
   }
 
-  //-- Actualizar coordenada x de la bola, en funcion de la velocidad
+  //-- Actualizar coordenada x e y de la bola, en funcion de la velocidad
   bola_x += bola_vx;
+  bola_y += bola_vy;
 
   //-- Borrar el canvas
   // Esquina superior izquierda del canvas (0,0), y anchura y altura
@@ -94,5 +102,7 @@ sacar.onclick = () => {
   //-- Establecer posicion incial de la bola
   bola_x = 50;
   bola_vx = 6;
+  bola_y = 100;
+  bola_vy = 6;
   console.log("sacar!");
 }
