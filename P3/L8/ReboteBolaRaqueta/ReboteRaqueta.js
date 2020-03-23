@@ -68,6 +68,11 @@ function animacion(){
 
   //-- Actualizar las posiciones de los objetos móviles
 
+  //-- -- Actualizar coordenada x e y de las raquetas, en funcion de la velocidad
+  // Raqueta izquierda
+  raqI_y += raqI_v;
+
+  
   //-- Comprobar si la bola ha alcanzado el límite derecho o izquierdo
   //-- Si es asi, se cambia el signo de la velocidad, para que 'rebote'
   //-- Y vaya en sentido opuesto
@@ -95,10 +100,6 @@ function animacion(){
   //-- Actualizar coordenada x e y de la bola, en funcion de la velocidad
   bola_x += bola_vx;
   bola_y += bola_vy;
-
-  //-- -- Actualizar coordenada x e y de las raquetas, en funcion de la velocidad
-  // Raqueta izquierda
-  raqI_y += raqI_v;
 
   //-- Borrar el canvas
   // Esquina superior izquierda del canvas (0,0), y anchura y altura
