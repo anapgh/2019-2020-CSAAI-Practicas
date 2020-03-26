@@ -174,6 +174,15 @@ function animacion(){
     sonido_raqueta.play();
   }
 
+  //Comprobar si la raqueta toca los bordes del canvas
+   if (raqI.y <= 0 || raqI.y >= (canvas.height - raqI.height)){
+     raqI.y = raqI.y * -1;
+   }
+   //Comprobar si la raqueta toca los bordes del canvas
+   if (raqD.y <= 0 || raqD.y >= (canvas.height - raqD.height)){
+     raqD.y = raqD.y * -1;
+   }
+
   //-- Actualizar coordenada x e y de la bola, en funcion de la velocidad
   bola.update();
 
