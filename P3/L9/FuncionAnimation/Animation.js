@@ -187,7 +187,12 @@ function animacion(){
   //-- Dibujar el nuevo frame
   draw();
 
+  //-- Arrancar la animacion
+  // Con una frecuencia de 60HZ, 17ms
+  window.requestAnimationFrame(animacion);
+
 }
+
 
 //-- Inicializa la bola a su posición inicializa
 const bola = new Bola(ctx);
@@ -204,9 +209,7 @@ raqD.init();
 
 //-- Arrancar la animacion
 // Con una frecuencia de 60HZ, 17ms
-setInterval(() => {
-  animacion();
-},16);
+animacion();
 
 //-- Retrollamada de las Teclas
 window.onkeydown = (e) => {

@@ -232,9 +232,9 @@ window.onkeydown = (e) => {
       //-- Tecla p: sube la raqueta derecha.
       raqD.v = raqD.v_ini * -1;
       break;
-    case 's':
+    case ' ':
       //-- Establecer posicion incial de la bola
-      //-- Tecla s: Saque
+      //-- Tecla ESPACIO: Saque
       //-- El saque solo funciona en el estado de SAQUE
       if (estado == ESTADO.SAQUE) {
         //-- Reproducir sonido
@@ -247,7 +247,6 @@ window.onkeydown = (e) => {
         bola.vy = bola.vy_ini;
         //-- Cambiar al estado de JUGANDO
         estado = ESTADO.JUGANDO;
-
         return false;
       }
     default:
@@ -282,6 +281,8 @@ const stop = document.getElementById("stop");
 stop.onclick = () => {
   //-- Volver al estado inicial
   estado = ESTADO.INIT;
+  contador1 = 0;
+  contador2 = 0;
   bola.init();
   start.disabled = false;
 }
