@@ -13,6 +13,7 @@ var ctx = canvas.getContext('2d');
 //-- Obtener sonidos
 const sonido_raqueta = new Audio("pong-raqueta.mp3");
 const sonido_rebote = new Audio("pong-rebote.mp3");
+const sonido_tanto = new Audio("pong-tanto.mp3");
 
 //-- Estados del juego
 const ESTADO = {
@@ -70,11 +71,15 @@ function draw(){
   }
 
    //-- Dibujar tanteo
-   ctx.font = '100px Arial'
+   ctx.font = '20px Arial'
    ctx.fillStyle = "white";
-   ctx.fillText('0', 220,80);
-   ctx.fillText('2', 350,80);
+   ctx.fillText(`Jugador1: ${contador1} puntos`, 80,60);
+   ctx.fillText(`Jugador2: ${contador2} puntos`, 400,60);
 }
+
+//-- Inicializa los contadores del tanto
+var contador1 = 0;
+var contador2 = 0;
 
 //-- Bucle principal de la animación
 // Se repetira con una frecuencia de 60Hz
@@ -91,12 +96,26 @@ function animacion(){
   //-- Comprobar si la bola ha alcanzado el límite derecho o izquierdo
   //-- Si es asi, se cambia el signo de la velocidad, para que 'rebote'
   //-- Y vaya en sentido opuesto
-  if((bola.x >= canvas.width)||(bola.x <= 0.0)){
+  if(bola.x >= canvas.width){
+    // Limite derecho
     //-- Hay colision. Cambiar el signo de la bola
     bola.vx = bola.vx * -1;
-    //-- Reproducir sonido
+    contador1 ++
+    console.log(`Contador 1: ${contador1}`);
     sonido_rebote.currentTime = 0;
     sonido_rebote.play();
+    sonido_tanto.currentTime = 0;
+    sonido_tanto.play();
+  }else if (bola.x <= 0.0) {
+    // limite izquierdos
+    //-- Hay colision. Cambiar el signo de la bola
+    bola.vx = bola.vx * -1;
+    contador2 ++
+    console.log(`Contador 2: ${contador2}`);
+    sonido_rebote.currentTime = 0;
+    sonido_rebote.play();
+    sonido_tanto.currentTime = 0;
+    sonido_tanto.play();
   }else if ((bola.y >= canvas.height)||(bola.y <= 0.0)) {
     //-- Hay colision. Cambiar el signo de la bola
     bola.vy = bola.vy * -1;
