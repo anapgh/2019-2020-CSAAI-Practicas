@@ -15,6 +15,10 @@ const sonido_raqueta = new Audio("pong-raqueta.mp3");
 const sonido_rebote = new Audio("pong-rebote.mp3");
 const sonido_tanto = new Audio("pong-tanto.mp3");
 
+//-- Inicializa los contadores del tanto
+var contador1 = 0;
+var contador2 = 0;
+
 //-- Estados del juego
 const ESTADO = {
   INIT: 0,
@@ -28,20 +32,6 @@ let estado = ESTADO.INIT;
 
 //-- Pintar todo los objetos del canvas
 function draw(){
-
-  //-- Dibujar texto de comenzar
-  if(estado == ESTADO.INIT){
-    ctx.font = "40px Arial";
-    ctx.fillStyle = "green";
-    ctx.fillText("Pulsa Start!", 30, 350);
-  }
-
-  //-- Dibujar el texto de sacar
-  if (estado == ESTADO.SAQUE) {
-    ctx.font = "40px Arial";
-    ctx.fillStyle = "yellow";
-    ctx.fillText("Saca!", 30, 350);
-  }
 
   //-- Solo en el estado de jugando
   if (estado == ESTADO.JUGANDO) {
@@ -57,7 +47,6 @@ function draw(){
   raqD.draw();
 
   //--Dibujo la red
-  console.log('dibujando red');
   ctx.beginPath();
   incr = 0
   while(incr <= canvas.height){
@@ -75,6 +64,22 @@ function draw(){
    ctx.fillStyle = "white";
    ctx.fillText(`Jugador1: ${contador1} puntos`, 80,60);
    ctx.fillText(`Jugador2: ${contador2} puntos`, 400,60);
+
+   //-- Dibujar el texto de sacar
+   if (estado == ESTADO.SAQUE) {
+     ctx.font = "40px Arial";
+     ctx.fillStyle = "yellow";
+     ctx.fillText("Saca!", 30, 350);
+   }
+
+   //-- Dibujar texto de comenzar
+   if(estado == ESTADO.INIT){
+     ctx.font = "40px Arial";
+     ctx.fillStyle = "green";
+     ctx.fillText("Pulsa Start!", 30, 350);
+   }
+
+
 }
 
 //-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
@@ -87,10 +92,6 @@ function is_negative_number(number){
     return false;
   }
 }
-
-//-- Inicializa los contadores del tanto
-var contador1 = 0;
-var contador2 = 0;
 
 //-- Bucle principal de la animación
 // Se repetira con una frecuencia de 60Hz
@@ -110,7 +111,8 @@ function animacion(){
   if(bola.x >= canvas.width){
     // Limite derecho
     //-- Hay colision. Cambiar el signo de la bola
-    bola.vx = bola.vx * -1;
+    estado = ESTADO.SAQUE;
+    bola.init();
     contador1 ++
     console.log(`Contador 1: ${contador1}`);
     sonido_rebote.currentTime = 0;
@@ -120,7 +122,8 @@ function animacion(){
   }else if (bola.x <= 0.0) {
     // limite izquierdos
     //-- Hay colision. Cambiar el signo de la bola
-    bola.vx = bola.vx * -1;
+    estado = ESTADO.SAQUE;
+    bola.init()
     contador2 ++
     console.log(`Contador 2: ${contador2}`);
     sonido_rebote.currentTime = 0;
@@ -188,15 +191,10 @@ function animacion(){
 
 //-- Inicializa la bola a su posición inicializa
 const bola = new Bola(ctx);
-bola.init();
 
 //-- Crear las raquetas.
 const raqI = new Raqueta(ctx);
 const raqD = new Raqueta(ctx);
-
-//-- Inicializar la raqueta izquierda a su posición inicial.
-raqI.init();
-
 
 //-- Cambiar las coordenadas de la raqueta derecha.
 raqD.x_ini = 540;
