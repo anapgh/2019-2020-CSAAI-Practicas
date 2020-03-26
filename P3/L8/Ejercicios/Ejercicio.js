@@ -76,6 +76,8 @@ function animacion(){
   if (bola.x >= raqI.x && bola.x <= (raqI.x + raqI.width) &&
       bola.y >= raqI.y && bola.y <= (raqI.y + raqI.height)){
     bola.vx = bola.vx * -1;
+    bola.vy -= raqI.v;
+    console.log(`Velocidad vertical bola: ${bola.vy}`);
 
   }
 
@@ -84,6 +86,8 @@ function animacion(){
   if (bola.x >= raqD.x && bola.x <=(raqD.x + raqD.width) &&
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
     bola.vx = bola.vx * -1;
+    bola.vy -= raqD.v;
+    console.log(`Velocidad vertical bola: ${bola.vy}`);
   }
 
   //-- Actualizar coordenada x e y de la bola, en funcion de la velocidad
