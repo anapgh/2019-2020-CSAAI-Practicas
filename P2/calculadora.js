@@ -20,8 +20,7 @@ const ESTADO = {
 };
 
 //-- Variable de ESTADO
-var estado = ESTADO.INIT;
-
+let estado = ESTADO.INIT;
 
 //--hace un bucle que va leyendo cada digito que se pulsa
 for(i=0; i<digitos.length; i++){
@@ -41,7 +40,7 @@ for(i=0; i<operacion.length; i++){
 
 //-- Poner una coma
 coma.onclick = () => {
-  if(estado == ESTADO.OP1 || estado == ESTADO.OP2_INIT){
+  if(estado == ESTADO.OP1 || estado == ESTADO.OP2_INIT || estado == ESTADO.INIT){
     display.innerHTML += coma.innerHTML;
     estado = ESTADO.OPERATION;
     console.log(`ESTADO ${estado}`);
