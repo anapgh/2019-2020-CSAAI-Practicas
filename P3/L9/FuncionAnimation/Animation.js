@@ -78,8 +78,6 @@ function draw(){
      ctx.fillStyle = "green";
      ctx.fillText("Pulsa Start!", 30, 350);
    }
-
-
 }
 
 //-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
@@ -176,6 +174,15 @@ function animacion(){
     sonido_raqueta.play();
   }
 
+  //Comprobar si la raqueta toca los bordes del canvas
+   if (raqI.y <= 0 || raqI.y >= (canvas.height - raqI.height)){
+     raqI.y = raqI.y * -1;
+   }
+   //Comprobar si la raqueta toca los bordes del canvas
+   if (raqD.y <= 0 || raqD.y >= (canvas.height - raqD.height)){
+     raqD.y = raqD.y * -1;
+   }
+
   //-- Actualizar coordenada x e y de la bola, en funcion de la velocidad
   bola.update();
 
@@ -190,9 +197,7 @@ function animacion(){
   //-- Arrancar la animacion
   // Con una frecuencia de 60HZ, 17ms
   window.requestAnimationFrame(animacion);
-
 }
-
 
 //-- Inicializa la bola a su posición inicializa
 const bola = new Bola(ctx);
@@ -208,7 +213,6 @@ raqD.init();
 
 
 //-- Arrancar la animacion
-// Con una frecuencia de 60HZ, 17ms
 animacion();
 
 //-- Retrollamada de las Teclas
@@ -235,9 +239,9 @@ window.onkeydown = (e) => {
       //-- Tecla p: sube la raqueta derecha.
       raqD.v = raqD.v_ini * -1;
       break;
-    case 's':
+    case ' ':
       //-- Establecer posicion incial de la bola
-      //-- Tecla s: Saque
+      //-- Tecla ESPACIO: Saque
       //-- El saque solo funciona en el estado de SAQUE
       if (estado == ESTADO.SAQUE) {
         //-- Reproducir sonido
@@ -250,7 +254,6 @@ window.onkeydown = (e) => {
         bola.vy = bola.vy_ini;
         //-- Cambiar al estado de JUGANDO
         estado = ESTADO.JUGANDO;
-
         return false;
       }
     default:
@@ -285,6 +288,8 @@ const stop = document.getElementById("stop");
 stop.onclick = () => {
   //-- Volver al estado inicial
   estado = ESTADO.INIT;
+  contador1 = 0;
+  contador2 = 0;
   bola.init();
   start.disabled = false;
 }
