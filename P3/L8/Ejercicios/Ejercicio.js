@@ -54,6 +54,9 @@ function is_negative_number(number){
   }
 }
 
+var contador1 = 0;
+var contador2 = 0;
+
 //-- Bucle principal de la animación
 // Se repetira con una frecuencia de 60Hz
 function animacion(){
@@ -69,10 +72,21 @@ function animacion(){
   //-- Comprobar si la bola ha alcanzado el límite derecho o izquierdo
   //-- Si es asi, se cambia el signo de la velocidad, para que 'rebote'
   //-- Y vaya en sentido opuesto
-  if((bola.x >= canvas.width)||(bola.x <= 0.0)){
+  if(bola.x >= canvas.width){
+    // Limite derecho
     //-- Hay colision. Cambiar el signo de la bola
     bola.vx = bola.vx * -1;
+    contador1 ++
+    console.log(`Contador 1: ${contador1}`);
     sonido.play();
+  }else if (bola.x <= 0.0) {
+    // limite izquierdos
+    //-- Hay colision. Cambiar el signo de la bola
+    bola.vx = bola.vx * -1;
+    contador2 ++
+    console.log(`Contador 2: ${contador2}`);
+    sonido.play();
+
   }else if ((bola.y >= canvas.height)||(bola.y <= 0.0)) {
     //-- Hay colision. Cambiar el signo de la bola
     bola.vy = bola.vy * -1;
