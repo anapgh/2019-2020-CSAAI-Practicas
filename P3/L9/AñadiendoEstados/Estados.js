@@ -78,8 +78,6 @@ function draw(){
      ctx.fillStyle = "green";
      ctx.fillText("Pulsa Start!", 30, 350);
    }
-
-
 }
 
 //-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
