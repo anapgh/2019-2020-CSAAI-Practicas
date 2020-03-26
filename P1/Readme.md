@@ -1,3 +1,3 @@
 # Práctica 1: CV
 
-HOLAAAAA QUE TAL
+https://anapgh.github.io/2019-2020-CSAAI-Practicas/P2/Calculadora.html
