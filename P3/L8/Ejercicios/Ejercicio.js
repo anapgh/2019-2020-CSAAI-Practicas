@@ -43,6 +43,17 @@ function draw(){
    ctx.fillText('2', 350,80);
 }
 
+//-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
+var number = 0;
+
+function is_negative_number(number){
+  if(number < 0){
+    return true;
+  }else {
+    return false;
+  }
+}
+
 //-- Bucle principal de la animación
 // Se repetira con una frecuencia de 60Hz
 function animacion(){
@@ -65,8 +76,10 @@ function animacion(){
   }else if ((bola.y >= canvas.height)||(bola.y <= 0.0)) {
     //-- Hay colision. Cambiar el signo de la bola
     bola.vy = bola.vy * -1;
+    console.log(`Velocidad vertical bola: ${bola.vy}`);
     sonido.play();
   }
+
 
   //-- Comprobacion se ha habido colision entre la bola y las raquetas
   // Raqueta izquierda
@@ -76,7 +89,12 @@ function animacion(){
   if (bola.x >= raqI.x && bola.x <= (raqI.x + raqI.width) &&
       bola.y >= raqI.y && bola.y <= (raqI.y + raqI.height)){
     bola.vx = bola.vx * -1;
-    bola.vy -= raqI.v;
+    //-- Sumar o restar la velocidad de la raqueta a la bola segun el signo
+    if (is_negative_number(bola.vy) == true){
+      bola.vy -= raqI.v;
+    }else {
+      bola.vy += raqI.v;
+    }
     console.log(`Velocidad vertical bola: ${bola.vy}`);
 
   }
@@ -86,7 +104,12 @@ function animacion(){
   if (bola.x >= raqD.x && bola.x <=(raqD.x + raqD.width) &&
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
     bola.vx = bola.vx * -1;
-    bola.vy -= raqD.v;
+    //-- Sumar o restar la velocidad de la raqueta a la bola segun el signo
+    if (is_negative_number(bola.vy) == true){
+      bola.vy -= raqD.v;
+    }else {
+      bola.vy += raqD.v;
+    }
     console.log(`Velocidad vertical bola: ${bola.vy}`);
   }
 
