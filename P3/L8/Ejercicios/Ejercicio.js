@@ -39,8 +39,8 @@ function draw(){
    //-- Dibujar tanteo
    ctx.font = '100px Arial'
    ctx.fillStyle = "white";
-   ctx.fillText('0', 220,80);
-   ctx.fillText('2', 350,80);
+   ctx.fillText(contador1, 220,80);
+   ctx.fillText(contador2, 350,80);
 }
 
 //-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
