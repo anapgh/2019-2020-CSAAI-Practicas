@@ -13,6 +13,11 @@ var ctx = canvas.getContext('2d');
 //-- Obtener sonidos
 const sonido_raqueta = new Audio("pong-raqueta.mp3");
 const sonido_rebote = new Audio("pong-rebote.mp3");
+const sonido_tanto = new Audio("pong-tanto.mp3");
+
+//-- Inicializa los contadores del tanto
+var contador1 = 0;
+var contador2 = 0;
 
 //-- Estados del juego
 const ESTADO = {
@@ -28,20 +33,6 @@ let estado = ESTADO.INIT;
 //-- Pintar todo los objetos del canvas
 function draw(){
 
-  //-- Dibujar texto de comenzar
-  if(estado == ESTADO.INIT){
-    ctx.font = "40px Arial";
-    ctx.fillStyle = "green";
-    ctx.fillText("Pulsa Start!", 30, 350);
-  }
-
-  //-- Dibujar el texto de sacar
-  if (estado == ESTADO.SAQUE) {
-    ctx.font = "40px Arial";
-    ctx.fillStyle = "yellow";
-    ctx.fillText("Saca!", 30, 350);
-  }
-
   //-- Solo en el estado de jugando
   if (estado == ESTADO.JUGANDO) {
     //-- Dibujar la Bola
@@ -56,7 +47,6 @@ function draw(){
   raqD.draw();
 
   //--Dibujo la red
-  console.log('dibujando red');
   ctx.beginPath();
   incr = 0
   while(incr <= canvas.height){
@@ -70,10 +60,37 @@ function draw(){
   }
 
    //-- Dibujar tanteo
-   ctx.font = '100px Arial'
+   ctx.font = '20px Arial'
    ctx.fillStyle = "white";
-   ctx.fillText('0', 220,80);
-   ctx.fillText('2', 350,80);
+   ctx.fillText(`Jugador1: ${contador1} puntos`, 80,60);
+   ctx.fillText(`Jugador2: ${contador2} puntos`, 400,60);
+
+   //-- Dibujar el texto de sacar
+   if (estado == ESTADO.SAQUE) {
+     ctx.font = "40px Arial";
+     ctx.fillStyle = "yellow";
+     ctx.fillText("Saca!", 30, 350);
+   }
+
+   //-- Dibujar texto de comenzar
+   if(estado == ESTADO.INIT){
+     ctx.font = "40px Arial";
+     ctx.fillStyle = "green";
+     ctx.fillText("Pulsa Start!", 30, 350);
+   }
+
+
+}
+
+//-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
+var number = 0;
+
+function is_negative_number(number){
+  if(number < 0){
+    return true;
+  }else {
+    return false;
+  }
 }
 
 //-- Bucle principal de la animación
@@ -91,12 +108,28 @@ function animacion(){
   //-- Comprobar si la bola ha alcanzado el límite derecho o izquierdo
   //-- Si es asi, se cambia el signo de la velocidad, para que 'rebote'
   //-- Y vaya en sentido opuesto
-  if((bola.x >= canvas.width)||(bola.x <= 0.0)){
+  if(bola.x >= canvas.width){
+    // Limite derecho
     //-- Hay colision. Cambiar el signo de la bola
-    bola.vx = bola.vx * -1;
-    //-- Reproducir sonido
+    estado = ESTADO.SAQUE;
+    bola.init();
+    contador1 ++
+    console.log(`Contador 1: ${contador1}`);
     sonido_rebote.currentTime = 0;
     sonido_rebote.play();
+    sonido_tanto.currentTime = 0;
+    sonido_tanto.play();
+  }else if (bola.x <= 0.0) {
+    // limite izquierdos
+    //-- Hay colision. Cambiar el signo de la bola
+    estado = ESTADO.SAQUE;
+    bola.init()
+    contador2 ++
+    console.log(`Contador 2: ${contador2}`);
+    sonido_rebote.currentTime = 0;
+    sonido_rebote.play();
+    sonido_tanto.currentTime = 0;
+    sonido_tanto.play();
   }else if ((bola.y >= canvas.height)||(bola.y <= 0.0)) {
     //-- Hay colision. Cambiar el signo de la bola
     bola.vy = bola.vy * -1;
@@ -113,6 +146,13 @@ function animacion(){
   if (bola.x >= raqI.x && bola.x <= (raqI.x + raqI.width) &&
       bola.y >= raqI.y && bola.y <= (raqI.y + raqI.height)){
     bola.vx = bola.vx * -1;
+    //-- Sumar o restar la velocidad de la raqueta a la bola segun el signo
+    if (is_negative_number(bola.vy) == true){
+      bola.vy -= raqI.v;
+    }else {
+      bola.vy += raqI.v;
+    }
+    console.log(`Velocidad vertical bola: ${bola.vy}`);
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
     sonido_raqueta.play();
@@ -124,6 +164,13 @@ function animacion(){
   if (bola.x >= raqD.x && bola.x <=(raqD.x + raqD.width) &&
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
     bola.vx = bola.vx * -1;
+    //-- Sumar o restar la velocidad de la raqueta a la bola segun el signo
+    if (is_negative_number(bola.vy) == true){
+      bola.vy -= raqD.v;
+    }else {
+      bola.vy += raqD.v;
+    }
+    console.log(`Velocidad vertical bola: ${bola.vy}`);
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
     sonido_raqueta.play();
@@ -140,32 +187,26 @@ function animacion(){
   //-- Dibujar el nuevo frame
   draw();
 
-  //-- Arrancar la animacion
-
-  window.requestAnimationFrame(animacion);
 }
-
-
 
 //-- Inicializa la bola a su posición inicializa
 const bola = new Bola(ctx);
-bola.init();
 
 //-- Crear las raquetas.
 const raqI = new Raqueta(ctx);
 const raqD = new Raqueta(ctx);
-
-//-- Inicializar la raqueta izquierda a su posición inicial.
-raqI.init();
-
 
 //-- Cambiar las coordenadas de la raqueta derecha.
 raqD.x_ini = 540;
 raqD.y_ini = 300;
 raqD.init();
 
-animacion();
 
+//-- Arrancar la animacion
+// Con una frecuencia de 60HZ, 17ms
+setInterval(() => {
+  animacion();
+},16);
 
 //-- Retrollamada de las Teclas
 window.onkeydown = (e) => {

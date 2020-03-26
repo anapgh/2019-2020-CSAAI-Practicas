@@ -32,12 +32,12 @@ class Bola {
   //-- FUNCIONES PARA LA BOLA
   draw(){
     //-- Dibujar la bola
-    ctx.beginPath();
-    ctx.fillStyle = 'white';
+    this.ctx.beginPath();
+    this.ctx.fillStyle = 'white';
 
     //-- x,y,anchura y altura
-    ctx.rect(this.x, this.y, this.size, this.size);
-    ctx.fill();
+    this.ctx.rect(this.x, this.y, this.size, this.size);
+    this.ctx.fill();
   }
 
   init(){
