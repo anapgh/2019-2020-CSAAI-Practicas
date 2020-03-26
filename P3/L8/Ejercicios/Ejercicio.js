@@ -37,10 +37,10 @@ function draw(){
   }
 
    //-- Dibujar tanteo
-   ctx.font = '100px Arial'
+   ctx.font = '20px Arial'
    ctx.fillStyle = "white";
-   ctx.fillText(contador1, 220,80);
-   ctx.fillText(contador2, 350,80);
+   ctx.fillText(`Jugador1: ${contador1} puntos`, 80,60);
+   ctx.fillText(`Jugador2: ${contador2} puntos`, 400,60);
 }
 
 //-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
