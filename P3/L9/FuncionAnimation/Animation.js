@@ -141,8 +141,11 @@ function animacion(){
   draw();
 
   //-- Arrancar la animacion
+
   window.requestAnimationFrame(animacion);
 }
+
+
 
 //-- Inicializa la bola a su posición inicializa
 const bola = new Bola(ctx);
@@ -161,8 +164,7 @@ raqD.x_ini = 540;
 raqD.y_ini = 300;
 raqD.init();
 
-
-
+animacion();
 
 
 //-- Retrollamada de las Teclas
