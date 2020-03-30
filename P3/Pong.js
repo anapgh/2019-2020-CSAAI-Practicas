@@ -60,10 +60,10 @@ function draw(){
   }
 
    //-- Dibujar tanteo
-   ctx.font = '20px Arial'
-   ctx.fillStyle = "white";
-   ctx.fillText(`Jugador1: ${contador1} puntos`, 80,60);
-   ctx.fillText(`Jugador2: ${contador2} puntos`, 400,60);
+   ctx.font = '30px Heart';
+   ctx.fillStyle = "yellow";
+   ctx.fillText(`T-REX: ${contador1}`, 20,60);
+   ctx.fillText(`CARNOTAURUS: ${contador2}`, 310,60);
 
    //-- Dibujar el texto de sacar
    if (estado == ESTADO.SAQUE) {

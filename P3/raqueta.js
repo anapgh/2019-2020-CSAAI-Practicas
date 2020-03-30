@@ -36,7 +36,7 @@ class Raqueta
     draw() {
       //------- Dibujar las raquetas
       this.ctx.beginPath();
-      this.ctx.fillStyle='white';
+      this.ctx.fillStyle ='green';
       //-- Raqueta izquierda
       this.ctx.rect(this.x, this.y, this.width, this.height);
       //-- Pintar!

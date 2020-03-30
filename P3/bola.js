@@ -6,7 +6,7 @@ class Bola {
     this.ctx = ctx;
 
     //Constante: tamaño de la bola
-    this.size = 5;
+    this.size = 10;
 
     //  Constante: posicion incial de la bola
     this.x_ini = 100;
@@ -33,7 +33,7 @@ class Bola {
   draw(){
     //-- Dibujar la bola
     this.ctx.beginPath();
-    this.ctx.fillStyle = 'white';
+    this.ctx.fillStyle = this.imagen;
 
     //-- x,y,anchura y altura
     this.ctx.rect(this.x, this.y, this.size, this.size);

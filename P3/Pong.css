@@ -1,9 +1,67 @@
+@font-face {
+  font-family: "Heart";
+  src : url("Heart.ttf");
+}
+
 /* Fondo de la pagina*/
 body{
-  background-color: lightblue;
+  background-image: url('554.gif');
+  background-size: cover;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-family: "Heart";
 }
 
 /* estilo para el canvas: negro */
 #canvas{
-  background-color: black;
+  background-image: url('tierra2.jpeg');
+}
+
+button{
+  font-family: "Heart";
+  font-size: 22px;
+  text-align: center;
+  color: green;
+  padding-top: 10px;
+  border-radius: 20px;
+}
+
+h1{
+  font-size: 50px;
+  color: green;
+  text-align: center;
+  background-color: rgba(255, 255, 0, 0.5);
+  padding-top: 10px;
+  border-radius: 20px;
+
+}
+
+p{
+  font-size: 25px;
+  color: green;
+  text-align: center;
+  background-color: rgba(255, 255, 0, 0.4);
+  padding-top: 10px;
+  border-radius: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+#img_derecha{
+  background-position: right;
+  width: 130px;
+}
+
+#img_izquierda{
+  width: 130px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -ms-filter: "FlipH";
+  filter: FlipH;
+  margin-left: 280px;
 }
