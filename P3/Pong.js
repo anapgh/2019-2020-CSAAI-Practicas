@@ -14,6 +14,7 @@ var ctx = canvas.getContext('2d');
 const sonido_raqueta = new Audio("pong-raqueta.mp3");
 const sonido_rebote = new Audio("pong-rebote.mp3");
 const sonido_tanto = new Audio("pong-tanto.mp3");
+const sonido_fondo = new Audio("jurassic-park-song.mp3");
 
 //-- Inicializa los contadores del tanto
 var contador1 = 0;
@@ -67,14 +68,14 @@ function draw(){
 
    //-- Dibujar el texto de sacar
    if (estado == ESTADO.SAQUE) {
-     ctx.font = "40px Arial";
+     ctx.font = "40px Heart";
      ctx.fillStyle = "yellow";
      ctx.fillText("Saca!", 30, 350);
    }
 
    //-- Dibujar texto de comenzar
    if(estado == ESTADO.INIT){
-     ctx.font = "40px Arial";
+     ctx.font = "40px Heart";
      ctx.fillStyle = "green";
      ctx.fillText("Pulsa Start!", 30, 350);
    }
@@ -277,6 +278,7 @@ window.onkeyup = (e) => {
 const start = document.getElementById("start");
 
 start.onclick = () => {
+  sonido_fondo.play();
   estado = ESTADO.SAQUE;
   console.log("SAQUE!");
   canvas.focus();
@@ -287,6 +289,7 @@ const stop = document.getElementById("stop");
 
 stop.onclick = () => {
   //-- Volver al estado inicial
+  sonido_fondo.pause();
   estado = ESTADO.INIT;
   contador1 = 0;
   contador2 = 0;
