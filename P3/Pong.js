@@ -15,16 +15,23 @@ const sonido_raqueta = new Audio("pong-raqueta.mp3");
 const sonido_rebote = new Audio("pong-rebote.mp3");
 const sonido_tanto = new Audio("pong-tanto.mp3");
 const sonido_fondo = new Audio("jurassic-park-song.mp3");
+const sonido_winner = new Audio("winner.mp3");
 
 //-- Inicializa los contadores del tanto
 var contador1 = 0;
 var contador2 = 0;
+
+//-- Jugadores
+let jugador1 = "T-REX";
+let jugador2 = "CARNOTAURUS";
+let ganador = "";
 
 //-- Estados del juego
 const ESTADO = {
   INIT: 0,
   SAQUE: 1,
   JUGANDO: 2,
+  WINNER: 3,
 }
 
 //-- Variable de ESTADO
@@ -63,8 +70,8 @@ function draw(){
    //-- Dibujar tanteo
    ctx.font = '30px Heart';
    ctx.fillStyle = "yellow";
-   ctx.fillText(`T-REX: ${contador1}`, 20,60);
-   ctx.fillText(`CARNOTAURUS: ${contador2}`, 310,60);
+   ctx.fillText(jugador1 + ': ' + contador1, 20,60);
+   ctx.fillText(jugador2 + ': ' + contador2, 310,60);
 
    //-- Dibujar el texto de sacar
    if (estado == ESTADO.SAQUE) {
@@ -77,20 +84,19 @@ function draw(){
    if(estado == ESTADO.INIT){
      ctx.font = "40px Heart";
      ctx.fillStyle = "green";
-     ctx.fillText("Pulsa Start!", 30, 350);
+     ctx.fillText("Start!", 30, 350);
    }
-}
 
-//-- Comprobacion de si la velocidad vertical de la bola es negativa o positiva
-var number = 0;
-
-function is_negative_number(number){
-  if(number < 0){
-    return true;
-  }else {
-    return false;
+  //-- Dibujar ganador
+  if (estado == ESTADO.WINNER){
+    ctx.font = "50px Heart";
+    ctx.fillStyle = "white";
+    ctx.fillText("THE WINNER IS", 100, 180);
+    ctx.fillText(ganador, 150, 250);
   }
 }
+
+
 
 //-- Bucle principal de la animación
 // Se repetira con una frecuencia de 60Hz
@@ -135,6 +141,22 @@ function animacion(){
     //-- Reproducir sonido
     sonido_rebote.currentTime = 0;
     sonido_rebote.play();
+  }
+
+  //-- Comprobacion de jugador ganador
+  if ((contador1 || contador2) == 5){
+    if (contador1 == 5){
+      ganador = jugador1;
+    }else if (contador2 == 5){
+      ganador = jugador2;
+    }
+    sonido_fondo.pause();
+    sonido_winner.play();
+    estado = ESTADO.WINNER;
+    contador1 = 0;
+    contador2 = 0;
+    bola.init();
+    start.disabled = false;
   }
 
   //-- Comprobacion se ha habido colision entre la bola y las raquetas
