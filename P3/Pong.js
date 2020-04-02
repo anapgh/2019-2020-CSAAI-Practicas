@@ -145,12 +145,9 @@ function animacion(){
   if (bola.x >= raqI.x && bola.x <= (raqI.x + raqI.width) &&
       bola.y >= raqI.y && bola.y <= (raqI.y + raqI.height)){
     bola.vx = bola.vx * -1;
-    //-- Sumar o restar la velocidad de la raqueta a la bola segun el signo
-    if (is_negative_number(bola.vy) == true){
-      bola.vy -= raqI.v;
-    }else {
-      bola.vy += raqI.v;
-    }
+    //-- Añadir la velocidad de la raqueta a la bola s
+    bola.vy = raqI.v;
+
     console.log(`Velocidad vertical bola: ${bola.vy}`);
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
@@ -163,12 +160,9 @@ function animacion(){
   if (bola.x >= raqD.x && bola.x <=(raqD.x + raqD.width) &&
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
     bola.vx = bola.vx * -1;
-    //-- Sumar o restar la velocidad de la raqueta a la bola segun el signo
-    if (is_negative_number(bola.vy) == true){
-      bola.vy -= raqD.v;
-    }else {
-      bola.vy += raqD.v;
-    }
+    //-- Añadir la velocidad de la raqueta a la bola
+    bola.vy = raqD.v;
+
     console.log(`Velocidad vertical bola: ${bola.vy}`);
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
@@ -278,6 +272,7 @@ window.onkeyup = (e) => {
 const start = document.getElementById("start");
 
 start.onclick = () => {
+  sonido_fondo.currentTime = 0;
   sonido_fondo.play();
   estado = ESTADO.SAQUE;
   console.log("SAQUE!");
