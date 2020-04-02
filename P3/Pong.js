@@ -144,10 +144,10 @@ function animacion(){
   }
 
   //-- Comprobacion de jugador ganador
-  if ((contador1 || contador2) == 5){
-    if (contador1 == 5){
+  if((contador1 || contador2) == 5){
+    if(contador1 == 5){
       ganador = jugador1;
-    }else if (contador2 == 5){
+    }else if(contador2 == 5){
       ganador = jugador2;
     }
     sonido_fondo.pause();
@@ -168,9 +168,8 @@ function animacion(){
       bola.y >= raqI.y && bola.y <= (raqI.y + raqI.height)){
     bola.vx = bola.vx * -1;
     //-- Añadir la velocidad de la raqueta a la bola s
-    bola.vy = raqI.v;
+    bola.vy = raqI.v_ini;
 
-    console.log(`Velocidad vertical bola: ${bola.vy}`);
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
     sonido_raqueta.play();
@@ -183,9 +182,8 @@ function animacion(){
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
     bola.vx = bola.vx * -1;
     //-- Añadir la velocidad de la raqueta a la bola
-    bola.vy = raqD.v;
+    bola.vy = raqD.v_ini;
 
-    console.log(`Velocidad vertical bola: ${bola.vy}`);
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
     sonido_raqueta.play();
