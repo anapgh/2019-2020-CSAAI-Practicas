@@ -97,7 +97,6 @@ function draw(){
 }
 
 
-
 //-- Bucle principal de la animación
 // Se repetira con una frecuencia de 60Hz
 function animacion(){
@@ -144,20 +143,25 @@ function animacion(){
   }
 
   //-- Comprobacion de jugador ganador
-  if((contador1 || contador2) == 5){
     if(contador1 == 5){
       ganador = jugador1;
+      sonido_fondo.pause();
+      sonido_winner.play();
+      estado = ESTADO.WINNER;
+      contador1 = 0;
+      contador2 = 0;
+      bola.init();
+      start.disabled = false
     }else if(contador2 == 5){
       ganador = jugador2;
+      sonido_fondo.pause();
+      sonido_winner.play();
+      estado = ESTADO.WINNER;
+      contador1 = 0;
+      contador2 = 0;
+      bola.init();
+      start.disabled = false
     }
-    sonido_fondo.pause();
-    sonido_winner.play();
-    estado = ESTADO.WINNER;
-    contador1 = 0;
-    contador2 = 0;
-    bola.init();
-    start.disabled = false;
-  }
 
   //-- Comprobacion se ha habido colision entre la bola y las raquetas
   // Raqueta izquierda
