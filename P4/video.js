@@ -16,7 +16,28 @@ video3.height = 100;
 display.width = 400;
 display.height = 200;
 
-
+//-- Obtener el boton de ver
 const play1 = document.getElementById("boton1");
 const play2 = document.getElementById("boton2");
 const play3 = document.getElementById("boton3");
+
+//-- Fuentes de video
+video1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+video2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4"
+video3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
+
+//-- Funciones de retrollamada al display
+play1.onclick = () => {
+  console.log("Click Video 1!");
+  display.src = video1.src;
+};
+
+play2.onclick = () => {
+  console.log("Click Video 2!");
+  display.src = video2.src;
+};
+
+play3.onclick = () => {
+  console.log("Click Video 3!");
+  display.src = video3.src;
+};
