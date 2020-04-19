@@ -30,14 +30,17 @@ video3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
 play1.onclick = () => {
   console.log("Click Video 1!");
   display.src = video1.src;
+  display.currentTime = video1.currentTime; // Sincronizamos los videos
 };
 
 play2.onclick = () => {
   console.log("Click Video 2!");
   display.src = video2.src;
+  display.currentTime = video2.currentTime; // Sincronizamos los videos
 };
 
 play3.onclick = () => {
   console.log("Click Video 3!");
   display.src = video3.src;
+  display.currentTime = video3.currentTime; // Sincronizamos los videos
 };
