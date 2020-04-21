@@ -113,6 +113,7 @@ function filtroGrises(){
 grises.onclick = () => {
   console.log('Boton grises');
   filtroGrises();
+  document.getElementById('deslizadores').style.display = 'none';
 }
 
 //-- Funcion de retrollamada al boton COLORES
@@ -122,4 +123,5 @@ colores.onclick = () => {
   des_verde.value = 255;
   des_azul.value = 255;
   deslizadores();
+  document.getElementById('deslizadores').style.display = 'block';
 }
