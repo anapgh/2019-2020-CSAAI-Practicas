@@ -32,8 +32,7 @@ function grises(){
   //-- Array de todos los pixeles
   let data = imgData.data; // Cada 4 posiciones corresponden a un punto de pixel
 
-  //-- Obtener los valores RGB
-  //-- Canal rojo
+  //-- Calcular el brillo para CADA PIXEL y ponerselo por igual a cada componente
   for (var i = 0; i < data.length; i+=4) {
     brillo = (3 * data[i] + 4 * data[i+1] + data[i+2])/8
     data[i] = brillo;
