@@ -16,10 +16,20 @@ const value_verde = document.getElementById('value_g');
 const value_azul = document.getElementById('value_b');
 
 //-- Obtener el boton de GRISES
-const grises = document.getElementById('grises')
+const grises = document.getElementById('grises');
 
 //-- Obtener boton de COLORES
-const colores = document.getElementById('colores')
+const colores = document.getElementById('colores');
+
+//-- Obtener boton de NEGATIVO
+const negativo = document.getElementById('negativo');
+
+//-- Obtener boton de REFLEJO
+const reflejo = document.getElementById('reflejo');
+var modoReflejo = false;
+
+//-- Obtener boton de ABAJO
+const abajo = document.getElementById('abajo');
 
 //-- Funcion de retrollamada de la imagen cargada
 //-- la imagen no se carga instantaneamete, sino que lleva tiempo.
@@ -92,6 +102,37 @@ function deslizadores(){
   }
 }
 
+function filtroNegativo(){
+  ctx.drawImage(img, 0,0);
+  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  let data = imgData.data;
+
+  for ( var i = 0; i < data.length; i+=4 ) {
+      var r = data[i];
+      var g = data[i+1];
+      var b = data[i+2];
+
+      data[i] = 255 - r;
+      data[i+1] = 255 - g;
+      data[i+2] = 255 - b;
+  }
+  ctx.putImageData( imgData, 0, 0 );
+}
+
+function filtroReflejo(){
+  ctx.drawImage(img, 0,0);
+  ctx.translate(2*(img.width)/2,0);
+  ctx.scale(-1,1);
+  ctx.drawImage(img, 0, 0);
+}
+
+function filtroAbajo(){
+  ctx.drawImage(img, 0,0);
+  ctx.translate(0,2*(img.height)/2);
+  ctx.scale(1,-1);
+  ctx.drawImage(img, 0, 0);
+}
+
 function filtroGrises(){
   ctx.drawImage(img, 0,0);
   let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -111,17 +152,33 @@ function filtroGrises(){
 
 //-- Función de retrollamada al boton de GRISES
 grises.onclick = () => {
-  console.log('Boton grises');
   filtroGrises();
   document.getElementById('deslizadores').style.display = 'none';
 }
 
 //-- Funcion de retrollamada al boton COLORES
 colores.onclick = () => {
-  console.log('Boton colores');
   des_rojo.value = 255;
   des_verde.value = 255;
   des_azul.value = 255;
   deslizadores();
   document.getElementById('deslizadores').style.display = 'block';
+}
+
+//-- Función de retrollamada al boton de GRISES
+negativo.onclick = () => {
+  filtroNegativo();
+  document.getElementById('deslizadores').style.display = 'none';
+}
+
+//-- Función de retrollamada al boton de REFLEJO
+reflejo.onclick = () => {
+  filtroReflejo();
+  document.getElementById('deslizadores').style.display = 'none';
+}
+
+//-- Función de retrollamada al boton de ABAJO
+abajo.onclick = () => {
+  filtroAbajo();
+  document.getElementById('deslizadores').style.display = 'none';
 }

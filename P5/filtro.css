@@ -8,7 +8,13 @@ body{
 #original{
   margin-left: 230px;
 }
+button{
+  color: pink;
+}
 
-#panel{
-  margin-left: 520px;
+#botones{
+  margin-left: 400px;
+}
+#deslizadores{
+  margin-left : 500px;
 }
