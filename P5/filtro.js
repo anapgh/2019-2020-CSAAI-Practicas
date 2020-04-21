@@ -15,6 +15,12 @@ const value_rojo = document.getElementById('value_r');
 const value_verde = document.getElementById('value_g');
 const value_azul = document.getElementById('value_b');
 
+//-- Obtener el boton de GRISES
+const grises = document.getElementById('grises')
+
+//-- Obtener boton de COLORES
+const colores = document.getElementById('colores')
+
 //-- Funcion de retrollamada de la imagen cargada
 //-- la imagen no se carga instantaneamete, sino que lleva tiempo.
 //-- Solo podemos acceder a ella una vez que este cargada totalmente.
@@ -33,31 +39,57 @@ img.onload = function(){
   console.log("Imagen lista...");
 };
 
-//-- Funcion de retrollamada del deslizador
-des_rojo.oninput = () => {
-  //-- Mostrar el nuevo valor del deslizador
-  value_rojo.innerHTML = des_rojo.value;
+//-- Funcion de retrollamada al boton de colores
+colores.onclick = () => {
+  //-- Funcion de retrollamada del deslizador
+  des_rojo.oninput = () => {
+    //-- Mostrar el nuevo valor del deslizador
+    value_rojo.innerHTML = des_rojo.value;
 
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
-  ctx.drawImage(img, 0,0);
+    //-- Situar la imagen original en el canvas
+    //-- No se han hecho manipulaciones todavia
+    ctx.drawImage(img, 0,0);
 
-  //-- Obtener la imagen del canvas en pixeles
+    //-- Obtener la imagen del canvas en pixeles
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    //-- Obtener el array con todos los píxeles
+    let data = imgData.data
+
+    //-- Obtener el umbral de la COMPONENTE ROJA del deslizador
+    umbral = des_rojo.value
+
+    //-- Filtrar la imagen según el nuevo umbral
+    //-- Cambiandole el valor de la componente roja
+    for (let i = 0; i < data.length; i+=4) {
+      if (data[i] > umbral) //-- Si es mayor que el umbralm le asignamos el valor umbral
+        data[i] = umbral;
+    }
+
+    //-- Poner la imagen modificada en el canvas
+    ctx.putImageData(imgData, 0, 0);
+  }
+}
+
+
+
+//-- Función de retrollamada al boton de GRISES
+grises.onclick = () => {
+  var brillo = 0;
+  //-- Obtenemos la imagen del canvas en pixeles
   let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-  //-- Obtener el array con todos los píxeles
-  let data = imgData.data
+  //-- Array de todos los pixeles
+  let data = imgData.data; // Cada 4 posiciones corresponden a un punto de pixel
 
-  //-- Obtener el umbral de la COMPONENTE ROJA del deslizador
-  umbral = des_rojo.value
-
-  //-- Filtrar la imagen según el nuevo umbral
-  //-- Cambiandole el valor de la componente roja
-  for (let i = 0; i < data.length; i+=4) {
-    if (data[i] > umbral) //-- Si es mayor que el umbralm le asignamos el valor umbral
-      data[i] = umbral;
+  //-- Calcular el brillo para CADA PIXEL y ponerselo por igual a cada componente
+  for (var i = 0; i < data.length; i+=4) {
+    brillo = (3 * data[i] + 4 * data[i+1] + data[i+2])/8
+    data[i] = brillo;
+    data[i+1] = brillo;
+    data[i+2] = brillo;
   }
 
-  //-- Poner la imagen modificada en el canvas
+  //-- Actualizamos  la imagen del canvas con los nuevos datos
   ctx.putImageData(imgData, 0, 0);
 }
