@@ -1,0 +1,14 @@
+body{
+  background-color: white;
+}
+
+#manipulada{
+  margin-left: 450px;
+}
+#original{
+  margin-left: 230px;
+}
+
+.panel{
+  margin-left: 520px;
+}
