@@ -30,6 +30,7 @@ var modoReflejo = false;
 
 //-- Obtener boton de ABAJO
 const abajo = document.getElementById('abajo');
+var modoAbajo = false;
 
 //-- Funcion de retrollamada de la imagen cargada
 //-- la imagen no se carga instantaneamete, sino que lleva tiempo.
@@ -120,17 +121,34 @@ function filtroNegativo(){
 }
 
 function filtroReflejo(){
-  ctx.drawImage(img, 0,0);
-  ctx.translate(2*(img.width)/2,0);
-  ctx.scale(-1,1);
-  ctx.drawImage(img, 0, 0);
+  if(modoReflejo== false){
+    ctx.drawImage(img, 0,0);
+    ctx.translate(2*(img.width)/2,0);
+    ctx.scale(-1,1);
+    ctx.drawImage(img, 0, 0);
+    modoReflejo = true;
+  }
 }
 
 function filtroAbajo(){
-  ctx.drawImage(img, 0,0);
-  ctx.translate(0,2*(img.height)/2);
-  ctx.scale(1,-1);
-  ctx.drawImage(img, 0, 0);
+  if(modoAbajo == false){
+    ctx.drawImage(img, 0,0);
+    ctx.translate(0,2*(img.height)/2);
+    ctx.scale(1,-1);
+    ctx.drawImage(img, 0, 0);
+    modoAbajo = true;
+  }
+}
+
+function comprobacionImagen(){
+  if(modoAbajo == true){
+    modoAbajo = false;
+    filtroAbajo();
+  }
+  if(modoReflejo == true){
+    modoAbajo = false;
+    filtroReflejo();
+  }
 }
 
 function filtroGrises(){
@@ -152,12 +170,14 @@ function filtroGrises(){
 
 //-- Función de retrollamada al boton de GRISES
 grises.onclick = () => {
+  comprobacionImagen();
   filtroGrises();
   document.getElementById('deslizadores').style.display = 'none';
 }
 
 //-- Funcion de retrollamada al boton COLORES
 colores.onclick = () => {
+  comprobacionImagen();
   des_rojo.value = 255;
   des_verde.value = 255;
   des_azul.value = 255;
@@ -167,18 +187,21 @@ colores.onclick = () => {
 
 //-- Función de retrollamada al boton de GRISES
 negativo.onclick = () => {
+  comprobacionImagen();
   filtroNegativo();
   document.getElementById('deslizadores').style.display = 'none';
 }
 
 //-- Función de retrollamada al boton de REFLEJO
 reflejo.onclick = () => {
+  comprobacionImagen();
   filtroReflejo();
   document.getElementById('deslizadores').style.display = 'none';
 }
 
 //-- Función de retrollamada al boton de ABAJO
 abajo.onclick = () => {
+  comprobacionImagen();
   filtroAbajo();
   document.getElementById('deslizadores').style.display = 'none';
 }
