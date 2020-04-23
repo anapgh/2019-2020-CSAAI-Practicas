@@ -16,7 +16,7 @@ Para jugar debes seguir los siguientes pasos:
 8. ¡QUÉ GANE EL MEJOR!
 
 --------------------------------------------------------------------------
-Las mejoras realizadas han sido: añadir musica de fondo y poner variable la velocidad de la bola.
+Las mejoras realizadas han sido: añadir musica de fondo, del ganador y poner variable la velocidad de la bola.
 --------------------------------------------------------------------------
 
 
