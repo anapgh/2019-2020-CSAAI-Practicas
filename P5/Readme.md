@@ -1,6 +1,7 @@
 # Práctica 5
 
 Bienvenido a la cabina de procesamiento de imagen de Jurassic World
+https://anapgh.github.io/2019-2020-CSAAI-Practicas/P5/filtro.html
 
 Para probarla debes seguir los siguientes pasos:
 1. Elegir la imagen a la que quieres aplicar los filtros.
