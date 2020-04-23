@@ -11,3 +11,6 @@ Para probarla debes seguir los siguientes pasos:
 	- REFLEJO HORIZONTAL: refleja la imagen horizontalmente
 	- REFLEJO ABAJO: refleja la imagen verticalmente hacia abajo
 3. Si quieres cambiar de imagen, solo debes pulsar el boton de laimagen que quieras manipular.
+-------------------------------------------------------------------------
+Las mejoras realizadas han sido: filtro negativo, filtros reflejados y añadir una imagen más para que sean 2.
+-------------------------------------------------------------------------
