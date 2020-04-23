@@ -2,9 +2,11 @@ console.log('Ejecutando JS...');
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
-const img = document.getElementById('imagesrc')
+const img1 = document.getElementById('imagesrc');
+const img2 = document.getElementById('imagesrc2');
 const ctx = canvas.getContext('2d');
-
+var imagen1 = false;
+var imagen2 = false;
 //-- Acceso a los deslizadores
 const des_rojo = document.getElementById('rojo');
 const des_verde = document.getElementById('verde')
@@ -32,18 +34,43 @@ var modoReflejo = false;
 const abajo = document.getElementById('abajo');
 var modoAbajo = false;
 
+//-- Obtener boton de IMAGENES
+const b_img1 = document.getElementById('foto1');
+const b_img2 = document.getElementById('foto2');
+
+//-- Botones e imagenes ocultas hasta elegir imagen
+document.getElementById('botones').style.display = 'none';
+document.getElementById('deslizadores').style.display = 'none';
+
+var test = new Image(300 ,160);
+test.src = 'barras.jpeg';
+
+test.onload = function(){
+  canvas.width = test.width;
+  canvas.height = test.height;
+  ctx.drawImage(test, 0,0);
+};
+
 //-- Funcion de retrollamada de la imagen cargada
 //-- la imagen no se carga instantaneamete, sino que lleva tiempo.
 //-- Solo podemos acceder a ella una vez que este cargada totalmente.
-img.onload = function(){
-  console.log("Imagen cargada");
+img1.onload = function(){
+  console.log("Imagen1 cargada");
   //-- Se establece como tamaño del canvas el mismo que la imagen Original
-  canvas.width = img.width;
-  canvas.height = img.height;
+  canvas.width = img1.width;
+  canvas.height = img1.height;
   //-- Situar la imagen original en el canvas.
   //-- No se han hecho manipulaciones aun.
-  ctx.drawImage(img, 0,0);
-  console.log("Imagen lista...");
+
+  console.log("Imagen1 lista...");
+};
+
+img2.onload = function(){
+  console.log("Imagen2 cargada");
+  canvas.width = img2.width;
+  canvas.height = img2.height;
+
+  console.log("Imagen2 lista...");
 };
 
 function filtroColores(data){
@@ -121,33 +148,30 @@ function filtroNegativo(){
 }
 
 function filtroReflejo(){
-  if(modoReflejo== false){
-    ctx.drawImage(img, 0,0);
-    ctx.translate(2*(img.width)/2,0);
-    ctx.scale(-1,1);
-    ctx.drawImage(img, 0, 0);
-    modoReflejo = true;
-  }
+  ctx.drawImage(img, 0,0);
+  ctx.translate(2*(img.width)/2,0);
+  ctx.scale(-1,1);
+  ctx.drawImage(img, 0, 0);
+  modoReflejo = true;
+
 }
 
 function filtroAbajo(){
-  if(modoAbajo == false){
-    ctx.drawImage(img, 0,0);
-    ctx.translate(0,2*(img.height)/2);
-    ctx.scale(1,-1);
-    ctx.drawImage(img, 0, 0);
-    modoAbajo = true;
-  }
+  ctx.drawImage(img, 0,0);
+  ctx.translate(0,2*(img.height)/2);
+  ctx.scale(1,-1);
+  ctx.drawImage(img, 0, 0);
+  modoAbajo = true;
 }
 
 function comprobacionImagen(){
   if(modoAbajo == true){
-    modoAbajo = false;
     filtroAbajo();
+    modoAbajo = false;
   }
   if(modoReflejo == true){
-    modoAbajo = false;
     filtroReflejo();
+    modoReflejo = false;
   }
 }
 
@@ -166,6 +190,32 @@ function filtroGrises(){
     data[i+2] = brillo;
   }
   ctx.putImageData(imgData, 0, 0);
+}
+
+//-- Elegir la imagen seleccionada
+function elegirImagen(){
+  if(imagen1 == true){
+    img = img1
+  }else if (imagen2 == true){
+    img = img2;
+  }
+  document.getElementById('botones').style.display = 'block';
+  document.getElementById('deslizadores').style.display = 'block';
+  ctx.drawImage(img, 0,0);
+}
+
+b_img1.onclick = () => {
+  imagen1 = true;
+  imagen2 = false;
+  comprobacionImagen();
+  elegirImagen()
+}
+
+b_img2.onclick = () => {
+  imagen1 = false;
+  imagen2 = true;
+  comprobacionImagen();
+  elegirImagen()
 }
 
 //-- Función de retrollamada al boton de GRISES
