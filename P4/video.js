@@ -5,6 +5,7 @@ const video1 = document.getElementById("video01");
 const video2 = document.getElementById("video02");
 const video3 = document.getElementById("video03");
 const display = document.getElementById("display");
+const imagen = document.getElementById("imagen");
 
 //-- Tamaño de la pantalla de video
 video1.width = 200;
@@ -15,12 +16,15 @@ video3.width = 200;
 video3.height = 100;
 display.width = 620;
 display.height = 200;
+imagen.width = 200;
+imagen.height = 100;
 
 //-- Fuentes de video
-video1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
-video2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4"
-video3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
-display.src = 'test.mp4'
+video1.src = "Blue.mp4";
+video2.src = "explosion.mp4";
+video3.src = "final.mp4";
+display.poster = "logo.gif";
+imagen.src = "rex.jpg"
 
 //-- Obtener el boton de ver
 const play1 = document.getElementById("boton1");
@@ -28,20 +32,106 @@ const play2 = document.getElementById("boton2");
 const play3 = document.getElementById("boton3");
 const loop = document.getElementById("loop");
 const noloop = document.getElementById("noloop");
+const estatica = document.getElementById("boton4");
 
 //-- Variables del bucle
 var sloop = false;
 const init = 10;
 const finish = init + 2;
 
-function startLoop(){
-  if(sloop == true){
-    video4.currentTime = 10;
+//-- Obtener boton automatico y manual
+const automatico = document.getElementById("automatico");
+const manual = document.getElementById("manual");
+var auto = false;
+var video = [video1, video2, video3];
 
-  }
+
+automatico.onclick = () => {
+  console.log('Modo automatico');
+  auto = true;
 }
 
+manual.onclick = () => {
+  console.log('Modo manual');
+  auto = false;
+}
 
+setInterval(()=>{
+  if(auto == true){
+    if(display.currentTime > 3){
+      display.src = video1.src;
+    }
+  }
+},20); //-- timer
+
+
+//-- Funciones de retrollamada al display
+play1.onclick = () => {
+  console.log("Click Video 1!");
+  display.poster = false;
+  display.src = video1.src;
+  display.currentTime = video1.currentTime; // Sincronizamos los videos
+  video1.style.border = '5px solid orange';
+  video2.style.border = '0px';
+  video3.style.border = '0px';
+  imagen.style.border = '0px';
+};
+
+video1.onmouseover = () => {
+    video1.muted = false;
+}
+
+video1.onmouseout = () => {
+  video1.muted = true;
+}
+
+play2.onclick = () => {
+  console.log("Click Video 2!");
+  display.poster = false;
+  display.src = video2.src;
+  display.currentTime = video2.currentTime; // Sincronizamos los videos
+  video1.style.border = '0px';
+  video2.style.border = '5px solid orange';
+  video3.style.border = '0px';
+  imagen.style.border = '0px';
+};
+
+video2.onmouseover = () => {
+    video2.muted = false;
+}
+
+video2.onmouseout = () => {
+  video2.muted = true;
+}
+
+play3.onclick = () => {
+  console.log("Click Video 3!");
+  display.poster = false;
+  display.src = video3.src;
+  display.currentTime = video3.currentTime; // Sincronizamos los videos
+  video1.style.border = '0px';
+  video2.style.border = '0px';
+  video3.style.border = '5px solid orange';
+  imagen.style.border = '0px';
+};
+
+video3.onmouseover = () => {
+  video3.muted = false;
+}
+
+video3.onmouseout = () => {
+  video3.muted = true;
+}
+
+estatica.onclick = () => {
+  console.log("Click Imagen estatica");
+  display.src = null;
+  display.poster = imagen.src;
+  video1.style.border = '0px';
+  video2.style.border = '0px';
+  video3.style.border = '0px';
+  imagen.style.border = '5px solid orange';
+};
 
 loop.onclick = () => {
   console.log('Modo bucle');
@@ -75,56 +165,4 @@ noloop.onclick = () => {
   if (video3.style.border == '5px solid orange'){
     display.currentTime = video3.currentTime;
   }
-}
-
-//-- Funciones de retrollamada al display
-play1.onclick = () => {
-  console.log("Click Video 1!");
-  display.src = video1.src;
-  display.currentTime = video1.currentTime; // Sincronizamos los videos
-  video1.style.border = '5px solid orange';
-  video2.style.border = '0px';
-  video3.style.border = '0px';
-};
-
-video1.onmouseover = () => {
-    video1.muted = false;
-}
-
-video1.onmouseout = () => {
-  video1.muted = true;
-}
-
-play2.onclick = () => {
-  console.log("Click Video 2!");
-  display.src = video2.src;
-  display.currentTime = video2.currentTime; // Sincronizamos los videos
-  video1.style.border = '0px';
-  video2.style.border = '5px solid orange';
-  video3.style.border = '0px';
-};
-
-video2.onmouseover = () => {
-    video2.muted = false;
-}
-
-video2.onmouseout = () => {
-  video2.muted = true;
-}
-
-play3.onclick = () => {
-  console.log("Click Video 3!");
-  display.src = video3.src;
-  display.currentTime = video3.currentTime; // Sincronizamos los videos
-  video1.style.border = '0px';
-  video2.style.border = '0px';
-  video3.style.border = '5px solid orange';
-};
-
-video3.onmouseover = () => {
-  video3.muted = false;
-}
-
-video3.onmouseout = () => {
-  video3.muted = true;
 }
