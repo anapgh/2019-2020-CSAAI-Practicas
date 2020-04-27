@@ -3,8 +3,6 @@ body{
   background-size: cover;
   position: absolute;
   left: 13%;
-
-
   color: black;
 
 }
@@ -19,7 +17,6 @@ h1{
   border-color: black;
   border-width: 5px;
 }
-
 
 button{
   color: green;
