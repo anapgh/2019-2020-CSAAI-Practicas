@@ -8,16 +8,16 @@ const display = document.getElementById("display");
 const imagen = document.getElementById("imagen");
 
 //-- Tamaño de la pantalla de video
-video1.width = 200;
-video1.height = 100;
-video2.width = 200;
-video2.height = 100;
-video3.width = 200;
-video3.height = 100;
-display.width = 620;
-display.height = 200;
-imagen.width = 200;
-imagen.height = 100;
+video1.width = 300;
+video1.height = 150;
+video2.width = 300;
+video2.height = 150;
+video3.width = 300;
+video3.height = 150;
+display.width = 640;
+display.height = 300;
+imagen.width = 300;
+imagen.height = 150;
 
 //-- Fuentes de video
 video1.src = "Blue.mp4";
@@ -136,8 +136,7 @@ estatica.onclick = () => {
 loop.onclick = () => {
   console.log('Modo bucle');
   loop.style.border = '5px solid blue';
-  noloop.style.border = '0px';
-  loop.style.border = '5px solid gray';
+  noloop.style.border = '5px solid black';
   display.currentTime = init;
   sloop = true;
 }
@@ -154,7 +153,7 @@ noloop.onclick = () => {
   console.log('Modo NO bucle');
   sloop = false;
   noloop.style.border = '5px solid blue';
-  loop.style.border = '0px';
+  loop.style.border = '5px solid black';
   // Volvemos a sincronizar con las miniaturas
   if (video1.style.border == '5px solid orange'){
     display.currentTime = video1.currentTime;
