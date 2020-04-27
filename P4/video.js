@@ -20,11 +20,11 @@ imagen.width = 300;
 imagen.height = 150;
 
 //-- Fuentes de video
-video1.src = "Blue.mp4";
-video2.src = "explosion.mp4";
-video3.src = "final.mp4";
-display.poster = "logo.gif";
-imagen.src = "rex.jpg"
+video1.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/Blue.mp4";
+video2.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/explosion.mp4";
+video3.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/final.mp4";
+display.poster = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/logo.gif";
+imagen.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/rex.jpg"
 
 //-- Obtener el boton de ver
 const play1 = document.getElementById("boton1");
@@ -44,26 +44,6 @@ const automatico = document.getElementById("automatico");
 const manual = document.getElementById("manual");
 var auto = false;
 var video = [video1, video2, video3];
-
-
-automatico.onclick = () => {
-  console.log('Modo automatico');
-  auto = true;
-}
-
-manual.onclick = () => {
-  console.log('Modo manual');
-  auto = false;
-}
-
-setInterval(()=>{
-  if(auto == true){
-    if(display.currentTime > 3){
-      display.src = video1.src;
-    }
-  }
-},20); //-- timer
-
 
 //-- Funciones de retrollamada al display
 play1.onclick = () => {
