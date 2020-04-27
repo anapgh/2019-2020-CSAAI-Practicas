@@ -172,7 +172,7 @@ function animacion(){
       bola.y >= raqI.y && bola.y <= (raqI.y + raqI.height)){
     bola.vx = bola.vx * -1;
     //-- Añadir la velocidad de la raqueta a la bola s
-    bola.vy = raqI.v_ini;
+    bola.vy *= raqI.v_ini/2;
 
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
@@ -186,7 +186,7 @@ function animacion(){
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
     bola.vx = bola.vx * -1;
     //-- Añadir la velocidad de la raqueta a la bola
-    bola.vy = raqD.v_ini;
+    bola.vy *= raqD.v_ini/2;
 
     //-- Reproducir sonido
     sonido_raqueta.currentTime = 0;
