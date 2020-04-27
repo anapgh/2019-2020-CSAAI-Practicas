@@ -2,13 +2,24 @@ body{
   background-image: url('selva.jpg');
   background-size: cover;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
+  left: 13%;
+
+
   color: black;
 
 }
+
+h1{
+  font-size: 50px;
+  color: black;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+}
+
 
 button{
   color: green;
