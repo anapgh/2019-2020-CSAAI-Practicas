@@ -10,9 +10,9 @@ Para probarla debes seguir los siguientes pasos:
 	- GRISES: pasa la imagen a escala de grises
 	- COLORES: te permite cambiar la cantidad de componente rgb
 	- NEGATIVO: invierte los colores
-	- REFLEJO HORIZONTAL: refleja la imagen horizontalmente
+	- REFLEJO HORIZONTAL: refleja la imagen hor izontalmente
 	- REFLEJO ABAJO: refleja la imagen verticalmente hacia abajo
-3. Si quieres cambiar de imagen, solo debes pulsar el boton de laimagen que quieras manipular.
+3. Si quieres cambiar de imagen, solo debes pulsar el boton de la imagen que quieras manipular.
 -------------------------------------------------------------------------
 Las mejoras realizadas han sido: filtro negativo, filtros reflejados y añadir una imagen más para que sean 2.
 -------------------------------------------------------------------------
