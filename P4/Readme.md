@@ -2,7 +2,7 @@
 
 Bienvenido a la cabina de control de Jurassic World
 
-https://anapgh.github.io/2019-2020-CSAAI-Practicas/P5/video.html
+https://anapgh.github.io/2019-2020-CSAAI-Practicas/P4/video.html
 
 Para probarla debes seguir los siguientes pasos:
 1. Primero de damos la bienvenida con el logo de nuestra pelicula!
