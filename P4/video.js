@@ -24,7 +24,7 @@ video1.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/Blu
 video2.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/explosion.mp4";
 video3.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/final.mp4";
 display.poster = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/logo.gif";
-imagen.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/rex.jpg"
+imagen.src = "https://github.com/anapgh/Fuentes/raw/master/Construcci%C3%B3n/Rex.jpg"
 
 //-- Obtener el boton de ver
 const play1 = document.getElementById("boton1");
